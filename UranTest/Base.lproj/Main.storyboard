@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MobileDev" selectionStyle="default" indentationWidth="10" reuseIdentifier="MobileDev" rowHeight="50" id="81N-Te-8MI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MobileDev" selectionStyle="default" indentationWidth="10" reuseIdentifier="MobileDev" rowHeight="50" id="81N-Te-8MI" customClass="FileTableViewCell" customModule="UranTest" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="81N-Te-8MI" id="MF7-Lu-tOx">
@@ -76,6 +76,14 @@
                                         </view>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fileNameLabel" destination="FpW-fa-obZ" id="5vZ-1I-RZX"/>
+                                    <outlet property="fileTypeImage" destination="qnR-wr-iN7" id="4RO-t2-DMx"/>
+                                    <outlet property="leftBottomStripeLabel" destination="fha-hj-6er" id="Wjb-NQ-sjZ"/>
+                                    <outlet property="leftTopStripeLabel" destination="OIj-da-rqU" id="fsL-jN-aXS"/>
+                                    <outlet property="modDateLabel" destination="G0J-cW-nmh" id="XUy-h2-tgE"/>
+                                    <outlet property="rightStripeLabel" destination="ozf-UW-5dO" id="ZCc-Du-jXc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -83,14 +91,6 @@
                             <outlet property="delegate" destination="KuP-gR-09i" id="Qiq-2O-A7c"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="fileNameLabel" destination="FpW-fa-obZ" id="eE8-b2-can"/>
-                        <outlet property="fileTypeImage" destination="qnR-wr-iN7" id="fGw-fK-LhX"/>
-                        <outlet property="leftBottomStripeLabel" destination="fha-hj-6er" id="qJa-tY-beQ"/>
-                        <outlet property="leftTopStripeLabel" destination="OIj-da-rqU" id="ueb-g2-roE"/>
-                        <outlet property="modDateLabel" destination="G0J-cW-nmh" id="hTV-tg-urT"/>
-                        <outlet property="rightStripeLabel" destination="ozf-UW-5dO" id="aLx-ca-H5i"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tA9-Ym-jix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
