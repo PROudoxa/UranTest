@@ -26,11 +26,12 @@ class FileTableViewController: UITableViewController {
       case image
       case pdf
       case movie
+      case unknown
    }
    
    let fileModel = [
       (filename: "filename1", isFolder: true, modDate: "Date1", fileType: fileType.image, isOrange: false, isBlue: false),
-      (filename: "filename2", isFolder: false, modDate: "Date2", fileType: fileType.pdf, isOrange: true, isBlue: false),
+      (filename: "filename2", isFolder: false, modDate: "Date2", fileType: fileType.pdf, isOrange: true, isBlue: true),
       (filename: "filename3", isFolder: true, modDate: "Date3", fileType: fileType.movie, isOrange: false, isBlue: true)
    ]
 
@@ -58,11 +59,54 @@ class FileTableViewController: UITableViewController {
       cell.fileNameLabel.text = fileModel[indexPath.row].filename
       cell.modDateLabel.text = fileModel[indexPath.row].modDate
       
-      cell.leftTopStripeLabel.isHidden = true
-      cell.rightStripeLabel.isHidden = true
-      cell.leftBottomStripeLabel.isHidden = true
+//      cell.leftTopStripeLabel.isHidden = true
+//      cell.rightStripeLabel.isHidden = true
+//      cell.leftBottomStripeLabel.isHidden = true
       
-
+      
+      if fileModel[indexPath.row].isFolder {
+         cell.rightStripeLabel.isHidden = false
+         cell.fileTypeImage.image = UIImage(named: "folder")
+      } else {
+         cell.rightStripeLabel.isHidden = true
+         
+         switch fileModel[indexPath.row].fileType {
+         case .image:
+            cell.fileTypeImage.image = UIImage(named: "image")
+         case .pdf:
+            cell.fileTypeImage.image = UIImage(named: "pdf")
+         case .movie:
+            cell.fileTypeImage.image = UIImage(named: "movie")
+         default:
+            cell.fileTypeImage.image = UIImage(named: "unknownFile")
+         }
+      }
+      
+      if fileModel[indexPath.row].isOrange && fileModel[indexPath.row].isBlue {
+         cell.leftTopStripeLabel.isHidden = false
+         cell.leftBottomStripeLabel.isHidden = false
+         cell.leftTopStripeLabel.backgroundColor = UIColor.orange
+         cell.leftBottomStripeLabel.backgroundColor = UIColor.blue
+      }
+      
+      if fileModel[indexPath.row].isOrange && !fileModel[indexPath.row].isBlue {
+         cell.leftTopStripeLabel.isHidden = false
+         cell.leftBottomStripeLabel.isHidden = false
+         cell.leftTopStripeLabel.backgroundColor = UIColor.orange
+         cell.leftBottomStripeLabel.backgroundColor = UIColor.orange
+      }
+      
+      if !fileModel[indexPath.row].isOrange && fileModel[indexPath.row].isBlue {
+         cell.leftTopStripeLabel.isHidden = false
+         cell.leftBottomStripeLabel.isHidden = false
+         cell.leftTopStripeLabel.backgroundColor = UIColor.blue
+         cell.leftBottomStripeLabel.backgroundColor = UIColor.blue
+      }
+      
+      if !fileModel[indexPath.row].isOrange && !fileModel[indexPath.row].isBlue {
+         cell.leftTopStripeLabel.isHidden = true
+         cell.leftBottomStripeLabel.isHidden = true
+      }
       
       return cell
    }
