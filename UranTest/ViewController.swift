@@ -29,9 +29,9 @@ class FileTableViewController: UITableViewController {
       case unknown
    }
    
-   let fileModel = [
-      (filename: "filename1", isFolder: true, modDate: "Date1", fileType: fileType.image, isOrange: false, isBlue: false),
-      (filename: "filename2", isFolder: false, modDate: "Date2", fileType: fileType.pdf, isOrange: true, isBlue: true),
+   var fileModel = [
+      (filename: "filename1", isFolder: true, modDate: "Date1", fileType: fileType.image, isOrange: true, isBlue: true),
+      (filename: "filename2", isFolder: false, modDate: "Date2", fileType: fileType.pdf, isOrange: false, isBlue: false),
       (filename: "filename3", isFolder: true, modDate: "Date3", fileType: fileType.movie, isOrange: false, isBlue: true)
    ]
 
@@ -58,10 +58,6 @@ class FileTableViewController: UITableViewController {
 
       cell.fileNameLabel.text = fileModel[indexPath.row].filename
       cell.modDateLabel.text = fileModel[indexPath.row].modDate
-      
-//      cell.leftTopStripeLabel.isHidden = true
-//      cell.rightStripeLabel.isHidden = true
-//      cell.leftBottomStripeLabel.isHidden = true
       
       
       if fileModel[indexPath.row].isFolder {
@@ -111,11 +107,37 @@ class FileTableViewController: UITableViewController {
       return cell
    }
    
-
+   //method when table view cell is tapped
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      print("You tapped cell number \(indexPath.row).")
+      if !fileModel[indexPath.row].isFolder {
+         print("It is just a file :)")
+      } else {
+         //TODO: push next controller
+      }
+   }
+   
+   //swipe menu buttons
+   override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+      let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
+         print("Favorite button tapped")
+      }
+      favorite.backgroundColor = .lightGray
+      
+      let link = UITableViewRowAction(style: .normal, title: "Link") { action, index in
+         print("Link button tapped")
+      }
+      link.backgroundColor = .orange
+      
+      let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+         print("Delete button tapped")
+      }
+      delete.backgroundColor = .blue
+      
+      return [favorite, link, delete]
+   }
    
 }
-
-
 
 
 
