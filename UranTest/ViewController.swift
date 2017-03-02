@@ -30,19 +30,21 @@ class FileTableViewController: UITableViewController {
       case unknown
    }
    
-   var fileModel = [
-      (filename: "filename1", isFolder: true, modDate: NSDate(), fileType: fileType.folder, isOrange: true, isBlue: true),
-      (filename: "filename2", isFolder: false, modDate: NSDate(), fileType: fileType.pdf, isOrange: false, isBlue: false),
-      (filename: "filename3", isFolder: true, modDate: NSDate(), fileType: fileType.folder, isOrange: false, isBlue: true),
-      (filename: "filename4", isFolder: true, modDate: NSDate(), fileType: fileType.folder, isOrange: true, isBlue: false),
-      (filename: "filename5", isFolder: false, modDate: NSDate(), fileType: fileType.movie, isOrange: false, isBlue: false),
-      (filename: "filename6", isFolder: false, modDate: NSDate(), fileType: fileType.unknown, isOrange: false, isBlue: true),
-      (filename: "filename7", isFolder: false, modDate: NSDate(), fileType: fileType.image, isOrange: false, isBlue: false),
-   ]
+   var fileModel: [(filename: NSString, isFolder: Bool, modDate: NSDate, fileType: fileType, isOrange: Bool, isBlue: Bool)] = []
+   
 
    override func viewDidLoad() {
       super.viewDidLoad()
-      // Do any additional setup after loading the view, typically from a nib.
+      
+      fileModel = [
+         (filename: "foldername1", isFolder: true,  modDate: NSDate(), fileType: fileType.folder,  isOrange: true,  isBlue: true),
+         (filename: "filename1",   isFolder: false, modDate: NSDate(), fileType: fileType.pdf,     isOrange: false, isBlue: false),
+         (filename: "foldername2", isFolder: true,  modDate: NSDate(), fileType: fileType.folder,  isOrange: false, isBlue: true),
+         (filename: "foldername3", isFolder: true,  modDate: NSDate(), fileType: fileType.folder,  isOrange: true,  isBlue: false),
+         (filename: "filename2",   isFolder: false, modDate: NSDate(), fileType: fileType.movie,   isOrange: false, isBlue: false),
+         (filename: "filename3",   isFolder: false, modDate: NSDate(), fileType: fileType.unknown, isOrange: false, isBlue: true),
+         (filename: "filename4",   isFolder: false, modDate: NSDate(), fileType: fileType.image,   isOrange: false, isBlue: false)
+      ]
    }
 
    override func didReceiveMemoryWarning() {
@@ -60,68 +62,21 @@ class FileTableViewController: UITableViewController {
    
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "MobileDev", for: indexPath) as! FileTableViewCell
+      let numberOfCell = indexPath.row
+      let date = fileModel[numberOfCell].modDate as Date
 
-      cell.fileNameLabel.text = fileModel[indexPath.row].filename
+      cell.fileNameLabel.text = fileModel[numberOfCell].filename as String
       
-      let date = fileModel[indexPath.row].modDate as Date
-      let dateFormatter = DateFormatter()
-      //dateFormatter.dateFormat = "yyyy-MM-dd"
-      dateFormatter.dateStyle = .long
-      let dateString = dateFormatter.string(from: date)
-      cell.modDateLabel.text = "modified  \(dateString)"
-      
-      //sets image depending on file type or if folder
-      if fileModel[indexPath.row].isFolder {
-         cell.rightStripeLabel.isHidden = false
-         cell.fileTypeImage.image = UIImage(named: "ca")
-      } else {
-         cell.rightStripeLabel.isHidden = true
-         
-         switch fileModel[indexPath.row].fileType {
-         case .image:
-            cell.fileTypeImage.image = UIImage(named: "ua")
-         case .pdf:
-            cell.fileTypeImage.image = UIImage(named: "us")
-         case .movie:
-            cell.fileTypeImage.image = UIImage(named: "gb")
-         default:
-            cell.fileTypeImage.image = UIImage(named: "ca")
-         }
-      }
-      
-      //makes stripes visible/invisible and sets color if needed
-      if fileModel[indexPath.row].isOrange && fileModel[indexPath.row].isBlue {
-         cell.leftTopStripeLabel.isHidden = false
-         cell.leftBottomStripeLabel.isHidden = false
-         cell.leftTopStripeLabel.backgroundColor = UIColor.orange
-         cell.leftBottomStripeLabel.backgroundColor = UIColor.blue
-      }
-      
-      if fileModel[indexPath.row].isOrange && !fileModel[indexPath.row].isBlue {
-         cell.leftTopStripeLabel.isHidden = false
-         cell.leftBottomStripeLabel.isHidden = false
-         cell.leftTopStripeLabel.backgroundColor = UIColor.orange
-         cell.leftBottomStripeLabel.backgroundColor = UIColor.orange
-      }
-      
-      if !fileModel[indexPath.row].isOrange && fileModel[indexPath.row].isBlue {
-         cell.leftTopStripeLabel.isHidden = false
-         cell.leftBottomStripeLabel.isHidden = false
-         cell.leftTopStripeLabel.backgroundColor = UIColor.blue
-         cell.leftBottomStripeLabel.backgroundColor = UIColor.blue
-      }
-      
-      if !fileModel[indexPath.row].isOrange && !fileModel[indexPath.row].isBlue {
-         cell.leftTopStripeLabel.isHidden = true
-         cell.leftBottomStripeLabel.isHidden = true
-      }
+      setModifiedDateText(cell: cell, date: date)
+      setImageFileType(cell: cell, numberOfCell: numberOfCell)
+      setLeftStripes(cell: cell, numberOfCell: numberOfCell)
       
       return cell
    }
    
    //method when table view cell is tapped
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      print("You tapped cell number \(indexPath.row).")
+      print("You tapped cell number \(indexPath.row + 1).")
       if !fileModel[indexPath.row].isFolder {
          print("It is just a file :)")
       } else {
@@ -131,6 +86,11 @@ class FileTableViewController: UITableViewController {
    
    //sets swipe menu buttons
    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+      let buttons = setSwipeButtons()
+      return buttons
+   }
+   
+   func setSwipeButtons() -> [UITableViewRowAction] {
       
       let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
          print("Favorite button tapped")
@@ -139,7 +99,7 @@ class FileTableViewController: UITableViewController {
       if UIImage(named: "favourite") != nil {
          favorite.backgroundColor = UIColor(patternImage: UIImage(named: "favourite")!)
       }
-
+      
       let link = UITableViewRowAction(style: .normal, title: "Link") { action, index in
          print("Link button tapped")
       }
@@ -158,6 +118,65 @@ class FileTableViewController: UITableViewController {
       
       return [favorite, link, delete]
    }
+   
+   func setImageFileType(cell: FileTableViewCell, numberOfCell: Int) {
+      
+      if fileModel[numberOfCell].isFolder {
+         cell.rightStripeLabel.isHidden = false
+         cell.fileTypeImage.image = UIImage(named: "ca")
+      } else {
+         cell.rightStripeLabel.isHidden = true
+         
+         switch fileModel[numberOfCell].fileType {
+         case .image:
+            cell.fileTypeImage.image = UIImage(named: "ua")
+         case .pdf:
+            cell.fileTypeImage.image = UIImage(named: "us")
+         case .movie:
+            cell.fileTypeImage.image = UIImage(named: "gb")
+         default:
+            cell.fileTypeImage.image = UIImage(named: "ca")
+         }
+      }
+   }
+   
+   func setModifiedDateText(cell: FileTableViewCell, date: Date) {
+      let dateFormatter = DateFormatter()
+      //dateFormatter.dateFormat = "yyyy-MM-dd"
+      dateFormatter.dateStyle = .long
+      let dateString = dateFormatter.string(from: date)
+      cell.modDateLabel.text = "modified  \(dateString)"
+   }
+   
+   func setLeftStripes(cell: FileTableViewCell, numberOfCell: Int) {
+      if fileModel[numberOfCell].isOrange && fileModel[numberOfCell].isBlue {
+         cell.leftTopStripeLabel.isHidden = false
+         cell.leftBottomStripeLabel.isHidden = false
+         cell.leftTopStripeLabel.backgroundColor = UIColor.orange
+         cell.leftBottomStripeLabel.backgroundColor = UIColor.blue
+      }
+      
+      if fileModel[numberOfCell].isOrange && !fileModel[numberOfCell].isBlue {
+         cell.leftTopStripeLabel.isHidden = false
+         cell.leftBottomStripeLabel.isHidden = false
+         cell.leftTopStripeLabel.backgroundColor = UIColor.orange
+         cell.leftBottomStripeLabel.backgroundColor = UIColor.orange
+      }
+      
+      if !fileModel[numberOfCell].isOrange && fileModel[numberOfCell].isBlue {
+         cell.leftTopStripeLabel.isHidden = false
+         cell.leftBottomStripeLabel.isHidden = false
+         cell.leftTopStripeLabel.backgroundColor = UIColor.blue
+         cell.leftBottomStripeLabel.backgroundColor = UIColor.blue
+      }
+      
+      if !fileModel[numberOfCell].isOrange && !fileModel[numberOfCell].isBlue {
+         cell.leftTopStripeLabel.isHidden = true
+         cell.leftBottomStripeLabel.isHidden = true
+      }
+   }
+   
+   
    
 }
 
