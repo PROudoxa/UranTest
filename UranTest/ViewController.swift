@@ -59,25 +59,26 @@ class FileTableViewController: UITableViewController {
       cell.fileNameLabel.text = fileModel[indexPath.row].filename
       cell.modDateLabel.text = fileModel[indexPath.row].modDate
       
-      
+      //sets image depending on file type or if folder
       if fileModel[indexPath.row].isFolder {
          cell.rightStripeLabel.isHidden = false
-         cell.fileTypeImage.image = UIImage(named: "folder")
+         cell.fileTypeImage.image = UIImage(named: "ca")
       } else {
          cell.rightStripeLabel.isHidden = true
          
          switch fileModel[indexPath.row].fileType {
          case .image:
-            cell.fileTypeImage.image = UIImage(named: "image")
+            cell.fileTypeImage.image = UIImage(named: "ua")
          case .pdf:
-            cell.fileTypeImage.image = UIImage(named: "pdf")
+            cell.fileTypeImage.image = UIImage(named: "us")
          case .movie:
-            cell.fileTypeImage.image = UIImage(named: "movie")
+            cell.fileTypeImage.image = UIImage(named: "gb")
          default:
-            cell.fileTypeImage.image = UIImage(named: "unknownFile")
+            cell.fileTypeImage.image = UIImage(named: "ca")
          }
       }
       
+      //makes stripes visible/invisible and sets color if needed
       if fileModel[indexPath.row].isOrange && fileModel[indexPath.row].isBlue {
          cell.leftTopStripeLabel.isHidden = false
          cell.leftBottomStripeLabel.isHidden = false
