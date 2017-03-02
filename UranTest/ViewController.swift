@@ -55,9 +55,12 @@ class FileTableViewController: UITableViewController {
       if !fileModel[indexPath.row].isFolder {
          print("It is just a file :)")
       } else {
-         //TODO: push next controller
+         //TODO:
          //implement request to get content for selected folder
          
+         if let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? MyNavigationController {
+            self.navigationController?.pushViewController(secondViewController, animated: true)
+         }
       }
    }
    

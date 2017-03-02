@@ -94,7 +94,20 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tA9-Ym-jix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="429.60000000000002" y="-111.0944527736132"/>
+            <point key="canvasLocation" x="314" y="-111"/>
+        </scene>
+        <!--My Navigation Controller-->
+        <scene sceneID="0KK-Zj-4fI">
+            <objects>
+                <navigationController storyboardIdentifier="SecondViewController" id="Wbd-9i-Nej" customClass="MyNavigationController" customModule="UranTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B9r-5q-r5X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7he-ec-DvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017" y="-111"/>
         </scene>
     </scenes>
 </document>
