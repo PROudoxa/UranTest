@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
-//class FileTableViewCell: UITableViewCell {
-//   
-//   @IBOutlet weak var fileNameLabel: UILabel!
-//   @IBOutlet weak var leftTopStripeLabel: UILabel!
-//   @IBOutlet weak var leftBottomStripeLabel: UILabel!
-//   @IBOutlet weak var modDateLabel: UILabel!
-//   @IBOutlet weak var fileTypeImage: UIImageView!
-//   @IBOutlet weak var rightStripeLabel: UILabel!
-//   
-//}
+class FileTableViewCell: UITableViewCell {
+   
+   @IBOutlet weak var fileNameLabel: UILabel!
+   @IBOutlet weak var leftTopStripeLabel: UILabel!
+   @IBOutlet weak var leftBottomStripeLabel: UILabel!
+   @IBOutlet weak var modDateLabel: UILabel!
+   @IBOutlet weak var fileTypeImage: UIImageView!
+   @IBOutlet weak var rightStripeLabel: UILabel!
+
+}

@@ -14,6 +14,7 @@
 		FAA92A411E672F5A00B03E33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA92A3F1E672F5A00B03E33 /* LaunchScreen.storyboard */; };
 		FAA92A4C1E672F5A00B03E33 /* UranTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA92A4B1E672F5A00B03E33 /* UranTestTests.swift */; };
 		FAA92A571E68034000B03E33 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA92A561E68034000B03E33 /* FileTableViewCell.swift */; };
+		FAA92A5B1E6845DA00B03E33 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA92A5A1E6845DA00B03E33 /* Resources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		FAA92A4B1E672F5A00B03E33 /* UranTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UranTestTests.swift; sourceTree = "<group>"; };
 		FAA92A4D1E672F5A00B03E33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA92A561E68034000B03E33 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
+		FAA92A5A1E6845DA00B03E33 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				FAA92A3F1E672F5A00B03E33 /* LaunchScreen.storyboard */,
 				FAA92A421E672F5A00B03E33 /* Info.plist */,
 				FAA92A561E68034000B03E33 /* FileTableViewCell.swift */,
+				FAA92A5A1E6845DA00B03E33 /* Resources.swift */,
 			);
 			path = UranTest;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA92A391E672F5A00B03E33 /* ViewController.swift in Sources */,
+				FAA92A5B1E6845DA00B03E33 /* Resources.swift in Sources */,
 				FAA92A571E68034000B03E33 /* FileTableViewCell.swift in Sources */,
 				FAA92A371E672F5A00B03E33 /* AppDelegate.swift in Sources */,
 			);
@@ -416,6 +420,7 @@
 				FAA92A521E672F5A00B03E33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAA92A531E672F5A00B03E33 /* Build configuration list for PBXNativeTarget "UranTestTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +429,7 @@
 				FAA92A551E672F5A00B03E33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

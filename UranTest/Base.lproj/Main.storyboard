@@ -77,12 +77,12 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="fileNameLabel" destination="FpW-fa-obZ" id="5vZ-1I-RZX"/>
-                                    <outlet property="fileTypeImage" destination="qnR-wr-iN7" id="4RO-t2-DMx"/>
-                                    <outlet property="leftBottomStripeLabel" destination="fha-hj-6er" id="Wjb-NQ-sjZ"/>
-                                    <outlet property="leftTopStripeLabel" destination="OIj-da-rqU" id="fsL-jN-aXS"/>
-                                    <outlet property="modDateLabel" destination="G0J-cW-nmh" id="XUy-h2-tgE"/>
-                                    <outlet property="rightStripeLabel" destination="ozf-UW-5dO" id="ZCc-Du-jXc"/>
+                                    <outlet property="fileNameLabel" destination="FpW-fa-obZ" id="nkT-bM-0at"/>
+                                    <outlet property="fileTypeImage" destination="qnR-wr-iN7" id="bKk-Rp-37n"/>
+                                    <outlet property="leftBottomStripeLabel" destination="fha-hj-6er" id="A4E-W6-gP8"/>
+                                    <outlet property="leftTopStripeLabel" destination="OIj-da-rqU" id="GPu-ZT-EtG"/>
+                                    <outlet property="modDateLabel" destination="G0J-cW-nmh" id="8sm-A6-qbf"/>
+                                    <outlet property="rightStripeLabel" destination="ozf-UW-5dO" id="qcA-Px-rbT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

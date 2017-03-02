@@ -8,43 +8,17 @@
 
 import UIKit
 
-class FileTableViewCell: UITableViewCell {
-   
-   @IBOutlet weak var fileNameLabel: UILabel!
-   @IBOutlet weak var leftTopStripeLabel: UILabel!
-   @IBOutlet weak var leftBottomStripeLabel: UILabel!
-   @IBOutlet weak var modDateLabel: UILabel!
-   @IBOutlet weak var fileTypeImage: UIImageView!
-   @IBOutlet weak var rightStripeLabel: UILabel!
-
-}
-
 
 class FileTableViewController: UITableViewController {
    
-   enum fileType {
-      case folder
-      case image
-      case pdf
-      case movie
-      case unknown
-   }
+   var delegate = SourceData()
    
-   var fileModel: [(filename: NSString, isFolder: Bool, modDate: NSDate, fileType: fileType, isOrange: Bool, isBlue: Bool)] = []
+   var fileModel: [(filename: NSString, isFolder: Bool, modDate: NSDate, fileType: SourceData.fileType, isOrange: Bool, isBlue: Bool)] = []
    
-
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      fileModel = [
-         (filename: "foldername1", isFolder: true,  modDate: NSDate(), fileType: fileType.folder,  isOrange: true,  isBlue: true),
-         (filename: "filename1",   isFolder: false, modDate: NSDate(), fileType: fileType.pdf,     isOrange: false, isBlue: false),
-         (filename: "foldername2", isFolder: true,  modDate: NSDate(), fileType: fileType.folder,  isOrange: false, isBlue: true),
-         (filename: "foldername3", isFolder: true,  modDate: NSDate(), fileType: fileType.folder,  isOrange: true,  isBlue: false),
-         (filename: "filename2",   isFolder: false, modDate: NSDate(), fileType: fileType.movie,   isOrange: false, isBlue: false),
-         (filename: "filename3",   isFolder: false, modDate: NSDate(), fileType: fileType.unknown, isOrange: false, isBlue: true),
-         (filename: "filename4",   isFolder: false, modDate: NSDate(), fileType: fileType.image,   isOrange: false, isBlue: false)
-      ]
+      fileModel = delegate.getFileModel()
    }
 
    override func didReceiveMemoryWarning() {
@@ -81,13 +55,15 @@ class FileTableViewController: UITableViewController {
          print("It is just a file :)")
       } else {
          //TODO: push next controller
+         //implement request to get content for selected folder
+         
       }
    }
    
    //sets swipe menu buttons
    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
-      let buttons = setSwipeButtons()
-      return buttons
+      let swipeButtons = setSwipeButtons()
+      return swipeButtons
    }
    
    func setSwipeButtons() -> [UITableViewRowAction] {
@@ -141,6 +117,7 @@ class FileTableViewController: UITableViewController {
    }
    
    func setModifiedDateText(cell: FileTableViewCell, date: Date) {
+      
       let dateFormatter = DateFormatter()
       //dateFormatter.dateFormat = "yyyy-MM-dd"
       dateFormatter.dateStyle = .long
@@ -149,6 +126,7 @@ class FileTableViewController: UITableViewController {
    }
    
    func setLeftStripes(cell: FileTableViewCell, numberOfCell: Int) {
+      
       if fileModel[numberOfCell].isOrange && fileModel[numberOfCell].isBlue {
          cell.leftTopStripeLabel.isHidden = false
          cell.leftBottomStripeLabel.isHidden = false
