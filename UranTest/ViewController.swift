@@ -75,7 +75,7 @@ class FileTableViewController: UITableViewController {
    
    func setSwipeButtons() -> [UITableViewRowAction] {
       
-      let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
+      let favorite = UITableViewRowAction(style: .normal, title: "fav") { action, index in
          print("Favorite button tapped")
       }
       favorite.backgroundColor = .lightGray
@@ -83,7 +83,7 @@ class FileTableViewController: UITableViewController {
          favorite.backgroundColor = UIColor(patternImage: UIImage(named: "favourite")!)
       }
       
-      let link = UITableViewRowAction(style: .normal, title: "Link") { action, index in
+      let link = UITableViewRowAction(style: .normal, title: "lin") { action, index in
          print("Link button tapped")
       }
       link.backgroundColor = .orange
@@ -91,7 +91,7 @@ class FileTableViewController: UITableViewController {
          link.backgroundColor = UIColor(patternImage: UIImage(named: "link")!)
       }
       
-      let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+      let delete = UITableViewRowAction(style: .normal, title: "del") { action, index in
          print("Delete button tapped")
       }
       delete.backgroundColor = .blue
@@ -99,7 +99,7 @@ class FileTableViewController: UITableViewController {
          delete.backgroundColor = UIColor(patternImage: UIImage(named: "delete")!)
       }
       
-      return [favorite, link, delete]
+      return [delete, link, favorite]
    }
    
    func setImageFileType(cell: FileTableViewCell, numberOfCell: Int) {
