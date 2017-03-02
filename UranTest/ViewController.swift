@@ -103,19 +103,19 @@ class FileTableViewController: UITableViewController {
       
       if fileModel[numberOfCell].isFolder {
          cell.rightStripeLabel.isHidden = false
-         cell.fileTypeImage.image = UIImage(named: "ca")
+         cell.fileTypeImage.image = UIImage(named: "folder")
       } else {
          cell.rightStripeLabel.isHidden = true
          
          switch fileModel[numberOfCell].fileType {
          case .image:
-            cell.fileTypeImage.image = UIImage(named: "ua")
+            cell.fileTypeImage.image = UIImage(named: "image")
          case .pdf:
-            cell.fileTypeImage.image = UIImage(named: "us")
+            cell.fileTypeImage.image = UIImage(named: "file")
          case .movie:
-            cell.fileTypeImage.image = UIImage(named: "gb")
+            cell.fileTypeImage.image = UIImage(named: "file")
          default:
-            cell.fileTypeImage.image = UIImage(named: "ca")
+            cell.fileTypeImage.image = UIImage(named: "file")
          }
       }
    }
