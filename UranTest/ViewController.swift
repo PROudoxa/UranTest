@@ -34,6 +34,7 @@ class FileTableViewController: UITableViewController {
       return fileModel.count
    }
    
+   //Cell
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "MobileDev", for: indexPath) as! FileTableViewCell
       let numberOfCell = indexPath.row
@@ -59,6 +60,9 @@ class FileTableViewController: UITableViewController {
          
       }
    }
+   
+   
+   // MARK: set text, icon data for cell
    
    //sets swipe menu buttons
    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
@@ -153,7 +157,6 @@ class FileTableViewController: UITableViewController {
          cell.leftBottomStripeLabel.isHidden = true
       }
    }
-   
    
    
 }
