@@ -31,13 +31,13 @@ class FileTableViewController: UITableViewController {
    }
    
    var fileModel = [
-      (filename: "filename1", isFolder: true, modDate: "Date1", fileType: fileType.folder, isOrange: true, isBlue: true),
-      (filename: "filename2", isFolder: false, modDate: "Date2", fileType: fileType.pdf, isOrange: false, isBlue: false),
-      (filename: "filename3", isFolder: true, modDate: "Date3", fileType: fileType.folder, isOrange: false, isBlue: true),
-      (filename: "filename4", isFolder: true, modDate: "Date4", fileType: fileType.folder, isOrange: true, isBlue: false),
-      (filename: "filename5", isFolder: false, modDate: "Date5", fileType: fileType.movie, isOrange: false, isBlue: false),
-      (filename: "filename6", isFolder: false, modDate: "Date6", fileType: fileType.unknown, isOrange: false, isBlue: true),
-      (filename: "filename7", isFolder: false, modDate: "Date7", fileType: fileType.image, isOrange: false, isBlue: false),
+      (filename: "filename1", isFolder: true, modDate: NSDate(), fileType: fileType.folder, isOrange: true, isBlue: true),
+      (filename: "filename2", isFolder: false, modDate: NSDate(), fileType: fileType.pdf, isOrange: false, isBlue: false),
+      (filename: "filename3", isFolder: true, modDate: NSDate(), fileType: fileType.folder, isOrange: false, isBlue: true),
+      (filename: "filename4", isFolder: true, modDate: NSDate(), fileType: fileType.folder, isOrange: true, isBlue: false),
+      (filename: "filename5", isFolder: false, modDate: NSDate(), fileType: fileType.movie, isOrange: false, isBlue: false),
+      (filename: "filename6", isFolder: false, modDate: NSDate(), fileType: fileType.unknown, isOrange: false, isBlue: true),
+      (filename: "filename7", isFolder: false, modDate: NSDate(), fileType: fileType.image, isOrange: false, isBlue: false),
    ]
 
    override func viewDidLoad() {
@@ -62,7 +62,13 @@ class FileTableViewController: UITableViewController {
       let cell = tableView.dequeueReusableCell(withIdentifier: "MobileDev", for: indexPath) as! FileTableViewCell
 
       cell.fileNameLabel.text = fileModel[indexPath.row].filename
-      cell.modDateLabel.text = fileModel[indexPath.row].modDate
+      
+      let date = fileModel[indexPath.row].modDate as Date
+      let dateFormatter = DateFormatter()
+      //dateFormatter.dateFormat = "yyyy-MM-dd"
+      dateFormatter.dateStyle = .long
+      let dateString = dateFormatter.string(from: date)
+      cell.modDateLabel.text = "modified  \(dateString)"
       
       //sets image depending on file type or if folder
       if fileModel[indexPath.row].isFolder {
