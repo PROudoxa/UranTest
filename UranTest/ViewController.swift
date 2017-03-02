@@ -23,6 +23,7 @@ class FileTableViewCell: UITableViewCell {
 class FileTableViewController: UITableViewController {
    
    enum fileType {
+      case folder
       case image
       case pdf
       case movie
@@ -30,9 +31,13 @@ class FileTableViewController: UITableViewController {
    }
    
    var fileModel = [
-      (filename: "filename1", isFolder: true, modDate: "Date1", fileType: fileType.image, isOrange: true, isBlue: true),
+      (filename: "filename1", isFolder: true, modDate: "Date1", fileType: fileType.folder, isOrange: true, isBlue: true),
       (filename: "filename2", isFolder: false, modDate: "Date2", fileType: fileType.pdf, isOrange: false, isBlue: false),
-      (filename: "filename3", isFolder: true, modDate: "Date3", fileType: fileType.movie, isOrange: false, isBlue: true)
+      (filename: "filename3", isFolder: true, modDate: "Date3", fileType: fileType.folder, isOrange: false, isBlue: true),
+      (filename: "filename4", isFolder: true, modDate: "Date4", fileType: fileType.folder, isOrange: true, isBlue: false),
+      (filename: "filename5", isFolder: false, modDate: "Date5", fileType: fileType.movie, isOrange: false, isBlue: false),
+      (filename: "filename6", isFolder: false, modDate: "Date6", fileType: fileType.unknown, isOrange: false, isBlue: true),
+      (filename: "filename7", isFolder: false, modDate: "Date7", fileType: fileType.image, isOrange: false, isBlue: false),
    ]
 
    override func viewDidLoad() {
@@ -118,22 +123,32 @@ class FileTableViewController: UITableViewController {
       }
    }
    
-   //swipe menu buttons
+   //sets swipe menu buttons
    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+      
       let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
          print("Favorite button tapped")
       }
       favorite.backgroundColor = .lightGray
-      
+      if UIImage(named: "favourite") != nil {
+         favorite.backgroundColor = UIColor(patternImage: UIImage(named: "favourite")!)
+      }
+
       let link = UITableViewRowAction(style: .normal, title: "Link") { action, index in
          print("Link button tapped")
       }
       link.backgroundColor = .orange
+      if UIImage(named: "link") != nil {
+         link.backgroundColor = UIColor(patternImage: UIImage(named: "link")!)
+      }
       
       let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
          print("Delete button tapped")
       }
       delete.backgroundColor = .blue
+      if UIImage(named: "delete") != nil {
+         delete.backgroundColor = UIColor(patternImage: UIImage(named: "delete")!)
+      }
       
       return [favorite, link, delete]
    }

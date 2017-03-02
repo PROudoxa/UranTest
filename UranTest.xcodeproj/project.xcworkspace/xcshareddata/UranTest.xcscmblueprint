@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7AE76121FCD9D1BA211535063FDDB04F46383E4A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D2B3D9384DF4A110ADF48DE8CE7FD5BE8985314C" : 9223372036854775807,
+    "7AE76121FCD9D1BA211535063FDDB04F46383E4A" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A7819977-8CE0-4925-BE7F-0DD9EB113841",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D2B3D9384DF4A110ADF48DE8CE7FD5BE8985314C" : "..",
+    "7AE76121FCD9D1BA211535063FDDB04F46383E4A" : "UranTest\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "UranTest",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "UranTest.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PROudoxa\/UranTest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7AE76121FCD9D1BA211535063FDDB04F46383E4A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PROudoxa\/git-first.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D2B3D9384DF4A110ADF48DE8CE7FD5BE8985314C"
+    }
+  ]
+}
