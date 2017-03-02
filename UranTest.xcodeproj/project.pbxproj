@@ -16,6 +16,7 @@
 		FAA92A571E68034000B03E33 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA92A561E68034000B03E33 /* FileTableViewCell.swift */; };
 		FAA92A5B1E6845DA00B03E33 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA92A5A1E6845DA00B03E33 /* Resources.swift */; };
 		FAA92A611E68CF3400B03E33 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA92A601E68CF3400B03E33 /* MyNavigationController.swift */; };
+		FAA92A631E68D67600B03E33 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA92A621E68D67600B03E33 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		FAA92A561E68034000B03E33 /* FileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		FAA92A5A1E6845DA00B03E33 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		FAA92A601E68CF3400B03E33 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		FAA92A621E68D67600B03E33 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				FAA92A561E68034000B03E33 /* FileTableViewCell.swift */,
 				FAA92A5A1E6845DA00B03E33 /* Resources.swift */,
 				FAA92A601E68CF3400B03E33 /* MyNavigationController.swift */,
+				FAA92A621E68D67600B03E33 /* SecondViewController.swift */,
 			);
 			path = UranTest;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA92A631E68D67600B03E33 /* SecondViewController.swift in Sources */,
 				FAA92A391E672F5A00B03E33 /* ViewController.swift in Sources */,
 				FAA92A5B1E6845DA00B03E33 /* Resources.swift in Sources */,
 				FAA92A571E68034000B03E33 /* FileTableViewCell.swift in Sources */,

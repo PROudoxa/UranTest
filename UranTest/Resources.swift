@@ -10,8 +10,10 @@ import Foundation
 
 
 protocol Resources {
+   
    var fileModel:[(filename: NSString, isFolder: Bool, modDate: NSDate, fileType: SourceData.fileType, isOrange: Bool, isBlue: Bool)] { get set }
    func getFileModel() -> [(filename: NSString, isFolder: Bool, modDate: NSDate, fileType: SourceData.fileType, isOrange: Bool, isBlue: Bool)]
+   
 }
 
 

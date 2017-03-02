@@ -58,9 +58,15 @@ class FileTableViewController: UITableViewController {
          //TODO:
          //implement request to get content for selected folder
          
-         if let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? MyNavigationController {
-            self.navigationController?.pushViewController(secondViewController, animated: true)
-         }
+//         if let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? MyNavigationController {
+//            self.navigationController?.pushViewController(secondViewController, animated: true)
+//         }
+         
+         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+         let navigationController = UINavigationController(rootViewController: vc)
+         self.present(navigationController, animated: true, completion: nil)
+         
+         
       }
    }
    
