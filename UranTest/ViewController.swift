@@ -62,12 +62,21 @@ class FileTableViewController: UITableViewController {
 //            self.navigationController?.pushViewController(secondViewController, animated: true)
 //         }
          
-         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
-         let navigationController = UINavigationController(rootViewController: vc)
-         self.present(navigationController, animated: true, completion: nil)
-         
-         
+//         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+//         let navigationController = UINavigationController(rootViewController: vc)
+//         //self.present(navigationController, animated: true, completion: nil)
+//         self.navigationController?.pushViewController(vc, animated: true)
+//         
+         performSegue(withIdentifier: "SecondViewController", sender: nil)
       }
+   }
+   var k = 0
+   func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      let destViewController: FileTableViewController = segue.destination as! FileTableViewController
+
+      print("k= \(k)  destViewController = \(destViewController)")
+      k = k + 1
+      
    }
    
    
