@@ -107,12 +107,12 @@
                     </navigationBar>
                     <connections>
                         <segue destination="KuP-gR-09i" kind="relationship" relationship="rootViewController" id="NFw-Ny-Tt4"/>
-                        <segue destination="KuP-gR-09i" kind="push" identifier="SecondViewController" id="OJI-2K-HXh"/>
+                        <segue destination="KuP-gR-09i" kind="show" identifier="next" id="OJI-2K-HXh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7he-ec-DvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-412" y="-111"/>
+            <point key="canvasLocation" x="-524" y="-157"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
